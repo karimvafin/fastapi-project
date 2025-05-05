@@ -6,14 +6,14 @@ from sqlalchemy.ext.asyncio import create_async_engine, async_sessionmaker, Asyn
 from app.config import settings as cnf
 
 # Для запуска через docker
-# DB_URL = (f"postgresql://{cnf.db_username}:{cnf.db_password}@"
-#           f"{cnf.db_host}:{cnf.db_port}/{cnf.db_name}")
-# ASYNC_DB_URL = (f"postgresql+asyncpg://{cnf.db_username}:{cnf.db_password}@"
-#                 f"{cnf.db_host}:{cnf.db_port}/{cnf.db_name}")
+DB_URL = (f"postgresql://{cnf.db_username}:{cnf.db_password}@"
+          f"{cnf.db_host}:{cnf.db_port}/{cnf.db_name}")
+ASYNC_DB_URL = (f"postgresql+asyncpg://{cnf.db_username}:{cnf.db_password}@"
+                f"{cnf.db_host}:{cnf.db_port}/{cnf.db_name}")
 
 # Для запуска локально
-DB_URL = "postgresql://fastapi_taskman:fastapi_taskman@127.0.0.1:5432/fastapi_taskman"
-ASYNC_DB_URL = "postgresql+asyncpg://fastapi_taskman:fastapi_taskman@127.0.0.1:5432/fastapi_taskman"
+# DB_URL = "postgresql://fastapi_taskman:fastapi_taskman@127.0.0.1:5432/fastapi_taskman"
+# ASYNC_DB_URL = "postgresql+asyncpg://fastapi_taskman:fastapi_taskman@127.0.0.1:5432/fastapi_taskman"
 engine = create_engine(DB_URL, echo=True)
 async_engine = create_async_engine(ASYNC_DB_URL, echo=True)
 
